@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* text-align: center; */
+        }
+
+        body {
+            background: #000;
+            color: white;
+            font-family: cursive;
+        }
+
+        .container {
+            margin-top: 14rem;
+            margin-left: 35%;
+            background-color: #111;
+            color: #fff;
+            border: 1px solid #333;
+            border: 2px solid grey;
+            width: 30%;
+            padding: 20px 50px;
+            border-radius: 7px;
+            text-align: center;
+            /* box-shadow: 0 4px 12px rgba(0,0,0,0.5); */
+        }
+
+        h2 {
+            margin-bottom: 15px;
+
+        }
+
+        .progressDiv {
+            background-color: #eee;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 20px;
+            margin: 20px 0;
+        }
+
+        .progressBar {
+            background-color: #4caf50;
+            width: 0%;
+            height: 100%;
+            text-align: end;
+            padding-right: 5px;
+        }
+
+        button {
+            padding: 10px 40px;
+            border-radius: 25px;
+            border: 2px solid grey;
+            background: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Download</h2>
+        <div class="progressDiv">
+            <div class="progressBar">0%</div>
+        </div>
+        <button>Download</button>
+    </div>
+    <script>
+        const h2 = document.querySelector('h2')
+        const progressBar = document.querySelector('.progressBar')
+        let btn = document.querySelector('button')
+
+        btn.addEventListener('click', () => {
+            let count = 0
+            h2.innerText = "🤚🏻"
+            let end = setInterval(() => {
+                if (count <= 100) {
+                    progressBar.textContent = count++ + "%"
+                    progressBar.style.width = count++ + "%"
+
+                } else {
+                    clearInterval(end)
+                    h2.textContent = "✅"
+                }
+            },  (10*1000)/100 )
+
+        })
+    </script>
+</body>
+
+</html>
